@@ -1,0 +1,259 @@
+:root {
+  --ink: #000000;
+  --paper: #f5f0e6;
+  --canvas: #e4e4e4;
+  --white: #ffffff;
+  --muted: #6b6b6b;
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
+  --border: 3px solid var(--ink);
+  --radius: 4px;
+  --pill: 999px;
+  --font: "Courier New", "Cascadia Mono", "Consolas", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 20px;
+  font-family: var(--font);
+  color: var(--ink);
+  background-color: var(--canvas);
+  background-image: radial-gradient(var(--ink) 1.4px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  background-color: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+/* Header */
+.topbar {
+  padding-bottom: 16px;
+  border-bottom: var(--border);
+}
+
+.brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Hero */
+.hero {
+  padding: 26px 0 22px;
+}
+
+.title {
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* Composer */
+.composer {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.text-input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font);
+  font-size: 15px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+}
+
+.text-input::placeholder {
+  color: var(--muted);
+}
+
+.add-btn {
+  flex-shrink: 0;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 20px;
+  color: var(--ink);
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.add-btn:hover {
+  background-color: var(--ink);
+  color: var(--white);
+}
+
+.add-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.filter {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 18px;
+  color: var(--ink);
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: var(--pill);
+  cursor: pointer;
+}
+
+.filter:hover {
+  background-color: var(--paper);
+}
+
+.filter.active,
+.filter[aria-pressed="true"] {
+  background-color: var(--ink);
+  color: var(--white);
+}
+
+/* Tasks */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.task-text {
+  flex: 1;
+  font-size: 15px;
+  word-break: break-word;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  text-align: left;
+}
+
+.task-text:hover {
+  text-decoration: underline;
+}
+
+.task.done .task-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.delete-btn {
+  flex-shrink: 0;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 12px;
+  color: var(--ink);
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: var(--ink);
+  color: var(--white);
+}
+
+.empty-message {
+  padding: 22px 14px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--muted);
+  border: 3px dashed var(--ink);
+  border-radius: var(--radius);
+}
+
+/* Keyboard focus: replaces the default outline with a high-contrast ring */
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body {
+    padding: 24px 14px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .composer {
+    flex-direction: column;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+}

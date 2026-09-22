@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Little Todo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header class="topbar">
+      <span class="brand">My Little Todo &#10022; Kelompok A11</span>
+    </header>
+
+    <section class="hero">
+      <h1 class="title">Things I need to do!</h1>
+      <p class="subtitle">Plis wok jangan kasi aku tugas lagi</p>
+    </section>
+
+    <form class="composer" aria-label="Add a task">
+      <label class="visually-hidden" for="task-input">New task</label>
+      <input
+        class="text-input"
+        id="task-input"
+        type="text"
+        placeholder="Ngapain yah?"
+        autocomplete="off"
+      >
+      <button class="add-btn" type="submit">+ Add</button>
+    </form>
+
+    <nav class="filters" aria-label="Filter tasks">
+      <button class="filter active" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter" type="button" data-filter="active" aria-pressed="false">Aktif</button>
+      <button class="filter" type="button" data-filter="completed" aria-pressed="false">Done</button>
+    </nav>
+
+    <section class="tasks" aria-label="Task list">
+      <ul class="list" id="task-list"></ul>
+
+      <p class="empty-message" id="empty-state">
+        List masih kosong. Silakan tulis tugas di atas dan tekan +
+      </p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

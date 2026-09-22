@@ -1,0 +1,10 @@
+# Editor and IDE settings (personal, not part of the project)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
